@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	//baseSelect()
+	baseSelect()
 	//gracefulShutdown()
 }
 
@@ -24,46 +24,46 @@ func baseSelect() {
 		fmt.Println("write", <-bufferedChan, <-bufferedChan)
 	}
 
-	unbufChan := make(chan int)
+	// unbufChan := make(chan int)
 
-	go func() {
-		time.Sleep(time.Second)
-		unbufChan <- 1
-	}()
+	// go func() {
+	// 	time.Sleep(time.Second)
+	// 	bufferedChan <- "test"
+	// }()
 
-	select {
-	case bufferedChan <- "third":
-		fmt.Println("unblocking writing")
-	case val := <-unbufChan:
-		fmt.Println("blocking reading", val)
-	case <-time.After(time.Millisecond * 1500):
-		fmt.Println("time`s up")
-	default:
-		fmt.Println("default case")
-	}
+	// select {
+	// case bufferedChan <- "third":
+	// 	fmt.Println("unblocking writing")
+	// case val := <-unbufChan:
+	// 	fmt.Println("blocking reading", val)
+	// case <-time.After(time.Millisecond * 1500):
+	// 	fmt.Println("time`s up")
+	// default:
+	// 	fmt.Println("default case")
+	// }
 
-	resultChan := make(chan int)
-	timer := time.After(time.Second) // timer outside loop
+	// resultChan := make(chan int)
+	// timer := time.After(time.Second) // timer outside loop
 
-	go func() {
-		defer close(resultChan)
+	// go func() {
+	// 	defer close(resultChan)
 
-		for i := 1; i <= 1000; i++ {
+	// 	for i := 1; i <= 1000; i++ {
 
-			select {
-			case <-timer:
-				fmt.Println("time`s up")
-				return
-			default:
-				//time.Sleep(time.Nanosecond)
-				resultChan <- i
-			}
-		}
-	}()
+	// 		select {
+	// 		case <-timer:
+	// 			fmt.Println("time`s up")
+	// 			return
+	// 		default:
+	// 			//time.Sleep(time.Nanosecond)
+	// 			resultChan <- i
+	// 		}
+	// 	}
+	// }()
 
-	for v := range resultChan {
-		fmt.Println(v)
-	}
+	// for v := range resultChan {
+	// 	fmt.Println(v)
+	// }
 }
 
 func gracefulShutdown() {
