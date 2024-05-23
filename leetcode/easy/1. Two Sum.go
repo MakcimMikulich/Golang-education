@@ -1,13 +1,9 @@
 package main
 
-import (
-	"fmt"
-)
+// func main() {
 
-func main() {
-
-	fmt.Println(twoSum([]int{7, 2, 11, 15}, 9))
-}
+// 	fmt.Println(twoSum([]int{7, 2, 11, 15}, 9))
+// }
 
 func twoSum(nums []int, target int) []int {
 

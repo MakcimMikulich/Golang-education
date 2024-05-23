@@ -27,11 +27,12 @@ func main() {
     fmt.Println(s)
     
     // Массивы
-    var arr [3]int = [3]int{1, 2, 3}
+    arr := [3]int{1, 2, 3}
     fmt.Println(arr)
     
     // Срезы
     var slice []int = []int{1, 2, 3}
+    slice := []int{1, 2, 3}
     fmt.Println(slice)
 
     slice := make([]int, 5) // Срез длиной 5 и емкостью 5

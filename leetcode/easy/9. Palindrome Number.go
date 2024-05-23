@@ -1,14 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 )
 
-func main() {
+// func main() {
 
-	fmt.Println(isPalindrome(923229))
-}
+// 	fmt.Println(isPalindrome(923229))
+// }
 
 func isPalindrome(x int) bool {
 
