@@ -25,9 +25,9 @@ func (s *Stack) Empty() bool {
 	return len(s.items) == 0
 }
 
-func main() {
-	fmt.Println(isValid("()[]{}"))
-}
+// func main() {
+// 	fmt.Println(isValid("()[]{}"))
+// }
 
 func isValid(s string) bool {
 	m := map[int]int{40: 41, 91: 93, 123: 125}
