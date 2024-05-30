@@ -1,60 +1,32 @@
 package main
 
-import (
-	"fmt"
-)
-
-type Stack struct {
-	items []int
-}
-
-func (s *Stack) Push(item int) {
-	s.items = append(s.items, item)
-}
-
-func (s *Stack) Pop() {
-	if s.Empty() {
-		return
-	}
-
-	s.items = s.items[:len(s.items)-1]
-
-}
-
-func (s *Stack) Empty() bool {
-	return len(s.items) == 0
-}
+import "fmt"
 
 func main() {
-	fmt.Println(isValid("()[]{}"))
+
+	fmt.Println(searchInsert([]int{1, 3, 5, 6}, 5))
+
 }
 
-func isValid(s string) bool {
-	m := map[int]int{40: 41, 91: 93, 123: 125}
+func searchInsert(nums []int, target int) int {
 
-	stack := &Stack{}
+	start := 0
+	end := len(nums)
 
-	for _, v := range s {
+	for {
+		middle := (end - start) / 2
 
-		fmt.Println(int(v))
-
-		if len(stack.items) == 0 {
-			stack.Push(int(v))
-			continue
+		if target == nums[middle] {
+			return middle
 		}
 
-		lastItem := stack.items[len(stack.items)-1]
-
-		if m[lastItem] == int(v) {
-			stack.Pop()
-		} else {
-			stack.Push(int(v))
-
+		if target > nums[middle] {
+			start = middle
 		}
 
-		fmt.Println(stack, m)
-
+		if target < nums[middle] {
+			end = middle
+		}
 	}
 
-	return stack.Empty()
 }
