@@ -3,30 +3,29 @@ package main
 import "fmt"
 
 func main() {
+	first := &ListNode{}
+	second := &ListNode{}
 
-	fmt.Println(searchInsert([]int{1, 3, 5, 6}, 5))
+	first.Val = 1
+	second.Val = 2
 
-}
+	first.Next.Val = 3
+	second.Next.Val = 4
 
-func searchInsert(nums []int, target int) int {
+	// first.Next.Next.Val = 5
+	// second.Next.Next.Val = 6
 
-	start := 0
-	end := len(nums)
+	fmt.Println(first, second)
 
-	for {
-		middle := (end - start) / 2
-
-		if target == nums[middle] {
-			return middle
-		}
-
-		if target > nums[middle] {
-			start = middle
-		}
-
-		if target < nums[middle] {
-			end = middle
-		}
-	}
+	// fmt.Println(addTwoNumbers([]int{1, 2, 3, 5, 6}, 5))
 
 }
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+//    func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+
+//    }
