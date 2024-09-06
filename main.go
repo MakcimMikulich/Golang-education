@@ -3,29 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	first := &ListNode{}
-	second := &ListNode{}
+	// fmt.Println(CreatePhoneNumber([10]uint{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}))
 
-	first.Val = 1
-	second.Val = 2
+	name := "Makcim"
 
-	first.Next.Val = 3
-	second.Next.Val = 4
-
-	// first.Next.Next.Val = 5
-	// second.Next.Next.Val = 6
-
-	fmt.Println(first, second)
-
-	// fmt.Println(addTwoNumbers([]int{1, 2, 3, 5, 6}, 5))
-
+	for _, v := range name {
+		fmt.Println(rune(v))
+		fmt.Println(string(v))
+	}
 }
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
-//    func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-
-//    }
